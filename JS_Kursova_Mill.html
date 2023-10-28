@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Як стати мільйонером</title>
+</head>
+<body>
+<script>
+    const questions = [
+        {
+            question: "Яка столиця Франції?",
+            options: ["А) Лондон", "Б) Париж", "В) Рим", "Г) Мадрид"],
+            correctAnswer: "Б",
+            prize: 100
+        },
+        {
+            question: "Скільки планет в Сонячній системі?",
+            options: ["А) 6", "Б) 8", "В) 9", "Г) 12"],
+            correctAnswer: "Б",
+            prize: 200
+        },
+        {
+            question: "Як називається найбільший континент?",
+            options: ["А) Європа", "Б) Північна Америка", "В) Африка", "Г) Азія"],
+            correctAnswer: "Г",
+            prize: 300
+        },
+        {
+            question: "Як називається хімічний елемент з абревіатурою 'Na'?",
+            options: ["А) Натрій", "Б) Нітроген", "В) Неон", "Г) Нікель"],
+            correctAnswer: "А",
+            prize: 500
+        },
+        {
+            question: "Яка найвища гора в світі?",
+            options: ["А) Кіліманджаро", "Б) Еверест", "В) Альпи", "Г) Анди"],
+            correctAnswer: "Б",
+            prize: 1000
+        }
+    ];
+
+    let totalPrize = 0;
+
+    function startGame() {
+        for (let i = 0; i < questions.length; i++) {
+            const userAnswer = prompt(
+                questions[i].question + "\n" + questions[i].options.join("\n")
+            );
+
+            if (userAnswer === questions[i].correctAnswer) {
+                totalPrize = questions[i].prize; // Зміна виграшу на поточний приз
+                const continueGame = confirm("Ви відповіли правильно! Ваш виграш: UAH " + questions[i].prize + "\nЧи бажаєте продовжити гру?");
+                if (!continueGame) {
+                    alert("Ваш загальний виграш: UAH " + totalPrize);
+                    break;
+                }
+            } else {
+                alert(`Ви відповіли неправильно. Правильна відповідь: ${questions[i].correctAnswer}. Гра закінчена.`);
+                break;
+            }
+        }
+    }
+
+    startGame();
+</script>
+</body>
+</html>

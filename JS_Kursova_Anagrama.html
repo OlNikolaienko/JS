@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Слова-анаграми</title>
+</head>
+<body>
+<script>
+function isAnagram(str1, str2) {
+// Видаляємо пробіли та перетворюємо в нижній регістр
+str1 = str1.replace(/\s/g, "").toLowerCase();
+str2 = str2.replace(/\s/g, "").toLowerCase();
+// Перевіряємо, чи мають обидва рядки однакову довжину
+if (str1.length !== str2.length) {
+return false;
+}
+// Створюємо об'єкти для підрахунку кількості кожної букви в рядках
+let charCount1 = {};
+let charCount2 = {};
+// Заповнюємо об'єкти з лічильниками
+for (let char of str1) {
+charCount1[char] = (charCount1[char] || 0) + 1;
+}
+for (const char of str2) {
+charCount2[char] = (charCount2[char] || 0) + 1;
+}
+// Порівнюємо об'єкти лічильників
+for (const char in charCount1) {
+if (charCount1[char] !== charCount2[char]) {
+return false;
+}
+}
+return true;
+}
+// Вводимо рядки
+const input1 = prompt("Введіть перший рядок:");
+const input2 = prompt("Введіть другий рядок:");
+// Визначаємо, чи є введені рядки анаграмою
+if (isAnagram(input1, input2)) {
+alert("Це анаграма");
+}
+else {
+alert("Ці рядки не анаграмами");
+}
+</script>
+</body>
+</html>

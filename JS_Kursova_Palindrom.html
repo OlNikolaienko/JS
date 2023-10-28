@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrom</title>
+</head>
+<body>
+<script>
+    function isPalindrome(str) {
+        // Видалимо пробіли і перетворимо в нижній регістр
+        str = str.replace(/ /g, "").toLowerCase();
+
+        // Порівняємо рядок зі зворотнім рядком
+        const reversedStr = str.split("").reverse().join("");
+        return str === reversedStr;
+    }
+
+    const userInput = prompt("Введіть рядок:"); // Користувач вводить рядок
+    if (isPalindrome(userInput)) {
+        alert("Це паліндром.");
+    } else {
+        alert("Це не паліндром.");
+    }
+</script>
+</body>
+</html>
